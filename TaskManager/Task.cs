@@ -18,7 +18,20 @@ namespace TaskManager
         public int id { get; protected set; }
         public string name { get; set; }
         public virtual List<Member> members { get; protected set; } = new List<Member>();
-        public virtual List<Project> projects { get; protected set; } = new List<Project>();
+        public virtual List<Task> tasks { get; protected set; } = new List<Task>();
+
+        public void CreateTask(Task task)
+        {
+            if (task == null)
+                throw new ArgumentNullException("Not content");
+            else if (task.team != null)
+                throw new ArgumentException("Task already binded to the team");
+            else
+            {
+                this.tasks.Add(task);
+                task.SetTeam(this);
+            }    
+        }
 
     }
     public class Project
@@ -34,7 +47,6 @@ namespace TaskManager
         public int id { get; protected set; }
         public string name { get; set; }
         public string description { get; set; }
-        public virtual Team team { get; protected set; }
         public virtual List<Task> tasks { get; protected set; } = new List<Task>();
     }
     public class Member
@@ -46,7 +58,7 @@ namespace TaskManager
             this.name = name;
         }
 
-        public int id { get; set; }
+        public int id { get; protected set; }
         public string name { get; set; }
         public virtual Team team { get; protected set; }
         public List<Task> tasks { get; protected set; } = new List<Task>();
@@ -54,23 +66,27 @@ namespace TaskManager
     public class Task
     {
         private static int _nextId = 1;
-        public Task(string name, string description, Status status, Priority priority)
+        public Task(string name, string description, Priority priority)
         {
             this.id = _nextId++;
             this.name = name;
             this.description = description;
-            this.status = status;
             this.priority = priority;
         }
 
-        public int id {  get; set; }
+        public int id { get; protected set; }
         public string name { get; set; }
         public string description { get; set; }
-        Status status { get; set; }
+        Status status { get; set; } = Status.New;
         Priority priority { get; set; }
         public DateTime dateset { get; protected set; } = DateTime.Now;
         public virtual Project project { get; protected set; }
-        public virtual List<Member> performers { get; protected set;} = new List<Member>();
+        public virtual Team team { get; protected set; }
+        public virtual List<Member> performers { get; protected set; } = new List<Member>();
+
+        internal void SetTeam(Team team)
+            { this.team = team; }
+
     }
     public enum Status
     {
