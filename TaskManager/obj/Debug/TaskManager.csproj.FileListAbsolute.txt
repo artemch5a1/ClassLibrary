@@ -1,0 +1,6 @@
+E:\Artem\My works\Projects\ПроектыVs\ClassLibrary\TaskManager\TaskManager\bin\Debug\TaskManager.dll
+E:\Artem\My works\Projects\ПроектыVs\ClassLibrary\TaskManager\TaskManager\bin\Debug\TaskManager.pdb
+E:\Artem\My works\Projects\ПроектыVs\ClassLibrary\TaskManager\TaskManager\obj\Debug\TaskManager.csproj.AssemblyReference.cache
+E:\Artem\My works\Projects\ПроектыVs\ClassLibrary\TaskManager\TaskManager\obj\Debug\TaskManager.csproj.CoreCompileInputs.cache
+E:\Artem\My works\Projects\ПроектыVs\ClassLibrary\TaskManager\TaskManager\obj\Debug\TaskManager.dll
+E:\Artem\My works\Projects\ПроектыVs\ClassLibrary\TaskManager\TaskManager\obj\Debug\TaskManager.pdb
