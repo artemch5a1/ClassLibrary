@@ -32,6 +32,20 @@ namespace TaskManager
                 task.SetTeam(this);
             }    
         }
+        public void RemoveTask(Task task)
+        {
+            if (task == null)
+                throw new ArgumentNullException("Not content");
+            else if (task.team != this)
+                throw new ArgumentException("Task already binded to the team");
+            else if (!this.tasks.Contains(task))
+                throw new ArgumentException("Task not found");
+            else
+            {
+                this.tasks.Remove(task);
+                task.SetTeam(null);
+            }
+        }
 
     }
     public class Project
@@ -66,13 +80,12 @@ namespace TaskManager
     public class Task
     {
         private static int _nextId = 1;
-        public Task(string name, string description, Priority priority, Project project)
+        public Task(string name, string description, Priority priority)
         {
             this.id = _nextId++;
             this.name = name;
             this.description = description;
             this.priority = priority;
-            this.project = project;
         }
 
         public int id { get; protected set; }
