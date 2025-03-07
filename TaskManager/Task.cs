@@ -81,8 +81,13 @@ namespace TaskManager
         }
         public void AddMember(Member member)
         {
-            this.members.Add(member);
-            member.SetTeam(this);
+            if (member == null) throw new ArgumentNullException("member is null");
+            else if (member.team != null) throw new ArgumentException("member has been already binded with team");
+            else
+            {
+                this.members.Add(member);
+                member.SetTeam(this);
+            }
         }
         
 

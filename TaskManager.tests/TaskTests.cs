@@ -338,6 +338,38 @@ namespace TaskManager.tests
             Assert.AreEqual(member.team, team);
 
         }
+        [TestMethod]
+        public void AddMember_NullMember_MemberInMembersTeamAndMemberSetTeam()
+        {
+            //arrange
+            Member member = null;
+            Team team = new Team("testTeam");
+            var expected = new ArgumentNullException("member is null");
+            //act & assert
+
+            var actual = Assert.ThrowsException<ArgumentNullException>(() => team.AddMember(member));
+
+            //assert
+            Assert.AreEqual(expected.Message, actual.Message);
+
+        }
+        [TestMethod]
+        public void AddMember_AnotherTeamMember_MemberInMembersTeamAndMemberSetTeam()
+        {
+            //arrange
+            Member member = new Member("test");
+            Team team1 = new Team("test2");
+            team1.AddMember(member);
+            Team team = new Team("testTeam");
+            var expected = new ArgumentException("member has been already binded with team");
+            //act & assert
+
+            var actual = Assert.ThrowsException<ArgumentException>(() => team.AddMember(member));
+
+            //assert
+            Assert.AreEqual(expected.Message, actual.Message);
+
+        }
     }
 
 }
