@@ -18,7 +18,7 @@ namespace TaskManager
         public int id { get; protected set; }
         public string name { get; set; }
         public virtual List<Member> members { get; protected set; } = new List<Member>();
-        public virtual List<Task> tasks { get; protected set; } = new List<Task>();
+        internal virtual List<Task> tasks { get; set; } = new List<Task>();
 
         public void CreateTask(Task task)
         {
@@ -46,6 +46,45 @@ namespace TaskManager
                 task.SetTeam(null);
             }
         }
+        public Task GetTask(int id)
+        {
+            Task task = this.tasks.FirstOrDefault(t => t.id == id);
+            if(task == null)
+                throw new ArgumentNullException("No tasks with this ID were found");
+            else 
+                return task;
+        }
+        public string GetTaskToString(int id)
+        {
+            string result = null;
+            Task task;
+            try
+            {
+               task = this.GetTask(id);
+               result = task.ToString();
+            }
+            catch (ArgumentNullException)
+            {
+                result = "у команды нет задачи с запрошенным id";
+            }
+            catch
+            {
+                throw new Exception("неизвествная ошибка");
+            }
+            
+             return result;
+        }
+
+        public List<Task> GetAllTask()
+        {
+            return this.tasks;
+        }
+        public void AddMember(Member member)
+        {
+            this.members.Add(member);
+            member.SetTeam(this);
+        }
+        
 
     }
     public class Project
@@ -74,8 +113,11 @@ namespace TaskManager
 
         public int id { get; protected set; }
         public string name { get; set; }
-        public virtual Team team { get; protected set; }
+        public virtual Team team { get; protected set; } = null;
         public List<Task> tasks { get; protected set; } = new List<Task>();
+
+        public void SetTeam(Team team)
+        { this.team = team; }
     }
     public class Task
     {
@@ -94,12 +136,14 @@ namespace TaskManager
         public Status status { get; set; } = Status.New;
         public Priority priority { get; set; }
         public DateTime dateset { get; protected set; } = DateTime.Now;
-        public virtual Project project { get; protected set; }
-        public virtual Team team { get; protected set; }
+        public virtual Project project { get; protected set; } = null;
+        public virtual Team team { get; protected set; } = null;
         public virtual List<Member> performers { get; protected set; } = new List<Member>();
 
         internal void SetTeam(Team team)
             { this.team = team; }
+        internal void SetProject(Project project)
+            { this.project = project; }
 
         public void ChangeTask(Task task)
         {
@@ -112,6 +156,25 @@ namespace TaskManager
                 this.priority = task.priority;
                 this.status = task.status;
             }
+        }
+        public override string ToString()
+        {
+            string team = "нет";
+            if(this.team != null)
+            {
+                team = this.team.name;
+            }
+            string project = "нет";
+            if(this.project != null)
+            {  project = this.project.name; }
+
+            return $"Задача id = {this.id}: {this.name}\n" +
+                $"Описание: {this.description}\n" +
+                $"Статус: {this.status}\n" +
+                $"Приоретет: {this.priority}\n" +
+                $"Дата создания: {this.dateset}\n" +
+                $"Название проекта: {project}\n" +
+                $"Название команды: {team}";
         }
 
     }
