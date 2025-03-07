@@ -91,8 +91,8 @@ namespace TaskManager
         public int id { get; protected set; }
         public string name { get; set; }
         public string description { get; set; }
-        Status status { get; set; } = Status.New;
-        Priority priority { get; set; }
+        public Status status { get; set; } = Status.New;
+        public Priority priority { get; set; }
         public DateTime dateset { get; protected set; } = DateTime.Now;
         public virtual Project project { get; protected set; }
         public virtual Team team { get; protected set; }
@@ -100,6 +100,19 @@ namespace TaskManager
 
         internal void SetTeam(Team team)
             { this.team = team; }
+
+        public void ChangeTask(Task task)
+        {
+            if (task == null)
+                throw new ArgumentNullException("Not content");
+            else
+            {
+                this.name = task.name;
+                this.description = task.description;
+                this.priority = task.priority;
+                this.status = task.status;
+            }
+        }
 
     }
     public enum Status

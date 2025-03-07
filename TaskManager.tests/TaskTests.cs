@@ -7,9 +7,30 @@ namespace TaskManager.tests
     public class TaskTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ChangeStatus_NullTask_ThrowsArgumentNullExceptionNotContent()
         {
-
+            //arrange
+            Task task = null;
+            Task task1 = new Task("s", "s", Priority.High);
+            var expected = new ArgumentNullException("Not content");
+            //act & assert
+            var actual = Assert.ThrowsException<ArgumentNullException>(() => task1.ChangeTask(task));
+            //act
+            Assert.AreEqual(expected.Message, actual.Message);
+        }
+        [TestMethod]
+        public void ChangeStatus_ValidTask_Task1ValuesEqualTask2EqualButTask1NotEqualTask2()
+        {
+            //arrange
+            Task task1 = new Task("g", "g", Priority.Low);
+            task1.status = Status.Cancelled;
+            Task task2 = new Task("s", "s", Priority.High);
+            bool expected = true;
+            //act
+            task1.ChangeTask(task2);
+            bool actual = (task1.name == task2.name && task1.description == task2.description && task1.priority == task2.priority && task1.status == task2.status) && (!task1.Equals(task2));
+            //assert
+            Assert.AreEqual(expected, actual);
         }
     }
 
