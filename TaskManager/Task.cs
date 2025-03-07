@@ -66,12 +66,13 @@ namespace TaskManager
     public class Task
     {
         private static int _nextId = 1;
-        public Task(string name, string description, Priority priority)
+        public Task(string name, string description, Priority priority, Project project)
         {
             this.id = _nextId++;
             this.name = name;
             this.description = description;
             this.priority = priority;
+            this.project = project;
         }
 
         public int id { get; protected set; }
