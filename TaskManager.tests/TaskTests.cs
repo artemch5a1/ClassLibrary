@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TaskManager.tests
 {
@@ -118,6 +119,8 @@ namespace TaskManager.tests
             //assert
             Assert.AreEqual(expected, actual);
         }
+        
+        
     }
 
     [TestClass]
@@ -370,6 +373,226 @@ namespace TaskManager.tests
             Assert.AreEqual(expected.Message, actual.Message);
 
         }
+        [TestMethod]
+        public void AllTaskMember_ValidMember_returnedListTaskMemeber()
+        {
+            //arrange
+            Team team = new Team("test");
+            Task task = new Task("test", "test", Priority.High);
+            team.CreateTask(task);
+            Member member = new Member("test");
+            team.AddMember(member);
+            member.AddTask(task);
+
+            //act
+            var actual = team.AllTaskMember(member);
+
+            //Arrange
+            Assert.AreEqual(actual, member.tasks); 
+        }
+        [TestMethod]
+        public void AllTaskMember_NullMember_returnedListTaskMemeber()
+        {
+            //arrange
+            Team team = new Team("test");
+            Task task = new Task("test", "test", Priority.High);
+            team.CreateTask(task);
+            Member member = null;
+            var expected = new ArgumentNullException("Member is null");
+
+            //act
+            var actual = Assert.ThrowsException<ArgumentNullException>(() => team.AllTaskMember(member));
+
+            //Arrange
+            Assert.AreEqual(expected.Message, actual.Message);
+        }
+        [TestMethod]
+        public void AllTaskMember_MemeberAnotherTeam_returnedListTaskMemeber()
+        {
+            //arrange
+            Team team = new Team("test");
+            Task task = new Task("test", "test", Priority.High);
+            Team team1 = new Team("test");
+            team1.CreateTask(task);
+            Member member = new Member("test");
+            team1.AddMember(member);
+            member.AddTask(task);
+            var expected = new ArgumentException("This member does not belong to this team");
+
+            //act
+            var actual = Assert.ThrowsException<ArgumentException>(() => team.AllTaskMember(member));
+
+            //Arrange
+            Assert.AreEqual(expected.Message, actual.Message);
+        }
+        [TestMethod]
+        public void TasksByStatus_Status_returnedListStatus()
+        {
+            //arrange
+            Task task1 = new Task("test", "test", Priority.Low);
+            Task task2 = new Task("test", "test", Priority.Low);
+            Task task3 = new Task("test", "test", Priority.Low);
+            Task task4 = new Task("test", "test", Priority.Low);
+            List<Task> tasksNew = new List<Task> { task1, task2, task3, task4};
+            Task task5 = new Task("test", "test", Priority.Low);
+            task5.status = Status.Completed;
+            Team team = new Team("test");
+            team.CreateTask(task1);
+            team.CreateTask(task2);
+            team.CreateTask(task3);
+            team.CreateTask(task4);
+            team.CreateTask(task5);
+            Status status = Status.New;
+            var expected = tasksNew;
+
+            //act
+            var actual = team.TasksByStatus(status);
+
+            //Assert
+            Assert.IsTrue(expected.SequenceEqual(actual));
+
+        }
+
+        [TestMethod]
+        public void CountTasks_TeamAdd3Task_returned3()
+        {
+            //arrange
+            Team team = new Team("test");
+            Task task1 = new Task("test", "test", Priority.Low);
+            Task task2 = new Task("test", "test", Priority.Low);
+            Task task3 = new Task("test", "test", Priority.Low);
+            team.CreateTask(task1);
+            team.CreateTask(task2);
+            team.CreateTask(task3);
+            int expected = 3;
+
+            //act
+            int actual = team.CountTasks();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
+        public void TasksByDate_ToDay_TaskAddToDay()
+        {
+            //arrange
+            Team team = new Team("test");
+            Task task1 = new Task("test", "test", Priority.Low);
+            Task task3 = new Task("test", "test", Priority.Low);
+            List<Task> tasks = new List<Task> { task1, task3};
+            Task task2 = new Task("test", "test", Priority.Low);
+            task2.ChangeDate(new DateTime(2025, 06, 03));
+            var expected = tasks;
+            team.CreateTask(task1);
+            team.CreateTask(task2);
+            team.CreateTask(task3);
+
+            //act
+            var actual = team.TasksByDate(DateTime.Today);
+
+            //assert
+            Assert.IsTrue(expected.SequenceEqual(actual));
+        }
+
+        [TestMethod]
+        public void TaskByProject_ProjectTask1Task3_returnedListTask1Task3()
+        {
+            //arrange
+            Team team1 = new Team("test");
+            Task task1 = new Task("test", "test", Priority.Low);
+            Task task2 = new Task("test", "test", Priority.Low);
+            Task task3 = new Task("test", "test", Priority.Low);
+            List<Task> expected = new List<Task> {task1, task3};
+            team1.CreateTask(task1);
+            team1.CreateTask(task2);
+            team1.CreateTask(task3);
+            Project project1 = new Project("test", "test");
+            project1.AddTask(task1);
+            project1.AddTask(task3);
+
+            //act
+            var actual = team1.TaskByProject(project1);
+
+            //assert
+            Assert.IsTrue(expected.SequenceEqual(actual));
+        }
+
+        [TestMethod]
+        public void TaskByProject_ProjectNull_ThrowsArgumentNullException()
+        {
+            //arrange
+            Team team1 = new Team("test");
+            Project project1 = null;
+            var expected = new ArgumentNullException("Project is null");
+            
+            //act
+            var actual = Assert.ThrowsException<ArgumentNullException>(() => team1.TaskByProject(project1));
+
+            //assert
+            Assert.AreEqual(expected.Message, actual.Message);
+        }
+    }
+
+    [TestClass]
+    public class MemberTest
+    {
+        [TestMethod]
+        public void AddTask_ValidTask_AddMemberInTaskAddTaskInMember()
+        {
+            //arrange
+            Team team = new Team("test");
+            Task task = new Task("test", "test", Priority.High);
+            team.CreateTask(task);
+            Member member = new Member("test");
+            team.AddMember(member);
+
+            //act
+            member.AddTask(task);
+
+
+            //assert
+            Assert.AreEqual(team.GetTask(task.id).performers, task.performers);
+            Assert.IsTrue(task.performers.Contains(member));
+            Assert.IsTrue(member.tasks.Contains(task));
+        }
+        [TestMethod]
+        public void AddTask_AnotherTeamTask_ThrowsArgumentException()
+        {
+            //arrange
+            Team team = new Team("test");
+            Task task = new Task("test", "test", Priority.High);
+            team.CreateTask(task);
+            Team team1 = new Team("test");
+            Member member = new Member("test");
+            team1.AddMember(member);
+            var expected = new ArgumentException("This task does not belong to member's team");
+
+            //act & assert
+            var actual = Assert.ThrowsException<ArgumentException>(() => member.AddTask(task));
+
+
+            //assert
+            Assert.AreEqual(expected.Message, actual.Message);
+        }
+        [TestMethod]
+        public void AddTask_NullTask_ThrowsArgumentNullException()
+        {
+            //arrange
+            Team team = new Team("test");
+            Task task = null;
+            Member member = new Member("test");
+            team.AddMember(member);
+            var expected = new ArgumentNullException("task is null");
+            //act & assert
+            var actual = Assert.ThrowsException<ArgumentNullException>(() => member.AddTask(task));
+
+            //assert
+            Assert.AreEqual(expected.Message, actual.Message);
+        }
+
+        
     }
 
 }

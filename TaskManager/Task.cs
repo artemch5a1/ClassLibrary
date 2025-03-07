@@ -89,8 +89,42 @@ namespace TaskManager
                 member.SetTeam(this);
             }
         }
-        
 
+        public List<Task> AllTaskMember(Member member)
+        {
+            List<Task> result = new List<Task>();
+
+            if (member == null) throw new ArgumentNullException("Member is null");
+            else if (member.team != this) throw new ArgumentException("This member does not belong to this team");
+            else
+            {
+                result = member.tasks;
+            }
+            return result;
+        }
+
+        public List<Task> TasksByStatus(Status status)
+        {
+
+            return this.tasks.Where(x => x.status == status).ToList();
+
+        }
+        public int CountTasks()
+        {
+            return this.tasks.Count;
+        }
+        public List<Task> TasksByDate(DateTime date)
+        {
+            return this.tasks.Where(x => x.dateset.Date.Equals(date.Date)).ToList();   
+        }
+        public List<Task> TaskByProject(Project project)
+        {
+            if (project == null) throw new ArgumentNullException("Project is null");
+            else
+            {
+                return this.tasks.Where(x => x.project == project).ToList();
+            }
+        }
     }
     public class Project
     {
@@ -106,6 +140,13 @@ namespace TaskManager
         public string name { get; set; }
         public string description { get; set; }
         public virtual List<Task> tasks { get; protected set; } = new List<Task>();
+
+        public void AddTask(Task task)
+        { 
+            this.tasks.Add(task);
+            task.SetProject(this);
+        }
+
     }
     public class Member
     {
@@ -123,6 +164,17 @@ namespace TaskManager
 
         public void SetTeam(Team team)
         { this.team = team; }
+        public void AddTask(Task task)
+        {
+            if (task == null) throw new ArgumentNullException("task is null");
+            else if (task.team != this.team) throw new ArgumentException("This task does not belong to member's team");
+            else
+            {
+                this.tasks.Add(task);
+                task.AddPerf(this);
+            }
+        }
+        
     }
     public class Task
     {
@@ -181,7 +233,12 @@ namespace TaskManager
                 $"Название проекта: {project}\n" +
                 $"Название команды: {team}";
         }
-
+        internal void AddPerf(Member member)
+        { this.performers.Add(member);}
+        internal void ChangeDate(DateTime date)
+        {
+            this.dateset = date;
+        }
     }
     public enum Status
     {
