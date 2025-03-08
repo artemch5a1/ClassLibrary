@@ -1,0 +1,59 @@
+[33mcommit da380a2535ba3d92b8ae35832c3799c806b422f6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Sat Mar 8 05:26:21 2025 +0300
+
+    Rebuild test and commented TeamTests
+
+[33mcommit 997ec22732316938e2f5649675102f18da5b5744[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Sat Mar 8 03:24:54 2025 +0300
+
+    commented and rebuilded models dll
+
+[33mcommit d8a1b7221d3001dd2601e7f805dee2c7541b5a57[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Sat Mar 8 00:23:04 2025 +0300
+
+    testing and functionality creating is done
+
+[33mcommit 38bf85baf123d6aaed1222c821211d39693966bd[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri Mar 7 20:04:44 2025 +0300
+
+    AddMember nas been tested
+
+[33mcommit a6fe34bad81bb666eed1c4c67409e40485e03660[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri Mar 7 19:52:53 2025 +0300
+
+    GetTask GetTaskToString GetAllTask has been tested, AddMember start testing
+
+[33mcommit ef702636c58ce47296656cdd26c40732ee57563a[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri Mar 7 16:42:23 2025 +0300
+
+    ChangeTask has been tested
+
+[33mcommit 1d56a4c7ea07c5edd701772e6141cef331cfa3c5[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri Mar 7 04:15:41 2025 +0300
+
+    RemoveTask has been tested
+
+[33mcommit 150ee892ceedb2e42cb8ea20a0a7dfd8a702aabc[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri Mar 7 03:19:41 2025 +0300
+
+    CreateTask has been tested
+
+[33mcommit ea62b6c6eaedf357427fd2407d5b146689570876[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri Mar 7 02:21:02 2025 +0300
+
+    add unit test project and first test
+
+[33mcommit 339906c3ed6db839a7dd5639280dea0d3a7a053d[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri Mar 7 00:20:13 2025 +0300
+
+    models build
