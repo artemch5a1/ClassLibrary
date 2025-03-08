@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{538A5408-0B93-445E-AE54-643A4FB08ABE}|TaskManager.tests\\TaskManager.tests.csproj|E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\taskmanager.tests\\tasktests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{538A5408-0B93-445E-AE54-643A4FB08ABE}|TaskManager.tests\\TaskManager.tests.csproj|e:\\artem\\my works\\projects\\\u043F\u0440\u043E\u0435\u043A\u0442\u044Bvs\\classlibrary\\taskmanager\\taskmanager.tests\\tasktests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{538A5408-0B93-445E-AE54-643A4FB08ABE}|TaskManager.tests\\TaskManager.tests.csproj|solutionrelative:taskmanager.tests\\tasktests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08F64395-A724-4C48-8B7F-898266C4F20F}|TaskManager\\TaskManager.csproj|e:\\artem\\my works\\projects\\\u043F\u0440\u043E\u0435\u043A\u0442\u044Bvs\\classlibrary\\taskmanager\\taskmanager\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08F64395-A724-4C48-8B7F-898266C4F20F}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{538A5408-0B93-445E-AE54-643A4FB08ABE}|TaskManager.tests\\TaskManager.tests.csproj|e:\\artem\\my works\\projects\\\u043F\u0440\u043E\u0435\u043A\u0442\u044Bvs\\classlibrary\\taskmanager\\taskmanager.tests\\membertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{538A5408-0B93-445E-AE54-643A4FB08ABE}|TaskManager.tests\\TaskManager.tests.csproj|solutionrelative:taskmanager.tests\\membertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08F64395-A724-4C48-8B7F-898266C4F20F}|TaskManager\\TaskManager.csproj|E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\taskmanager\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08F64395-A724-4C48-8B7F-898266C4F20F}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{538A5408-0B93-445E-AE54-643A4FB08ABE}|TaskManager.tests\\TaskManager.tests.csproj|e:\\artem\\my works\\projects\\\u043F\u0440\u043E\u0435\u043A\u0442\u044Bvs\\classlibrary\\taskmanager\\taskmanager.tests\\teamtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{538A5408-0B93-445E-AE54-643A4FB08ABE}|TaskManager.tests\\TaskManager.tests.csproj|solutionrelative:taskmanager.tests\\teamtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08F64395-A724-4C48-8B7F-898266C4F20F}|TaskManager\\TaskManager.csproj|E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\taskmanager\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08F64395-A724-4C48-8B7F-898266C4F20F}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +26,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MemberTests.cs",
+              "DocumentMoniker": "E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\TaskManager.tests\\MemberTests.cs",
+              "RelativeDocumentMoniker": "TaskManager.tests\\MemberTests.cs",
+              "ToolTip": "E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\TaskManager.tests\\MemberTests.cs",
+              "RelativeToolTip": "TaskManager.tests\\MemberTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T02:17:30.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TeamTests.cs",
+              "DocumentMoniker": "E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\TaskManager.tests\\TeamTests.cs",
+              "RelativeDocumentMoniker": "TaskManager.tests\\TeamTests.cs",
+              "ToolTip": "E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\TaskManager.tests\\TeamTests.cs",
+              "RelativeToolTip": "TaskManager.tests\\TeamTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABECAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T01:21:38.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Team.cs",
               "DocumentMoniker": "E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\TaskManager\\Team.cs",
               "RelativeDocumentMoniker": "TaskManager\\Team.cs",
@@ -38,22 +72,6 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\TaskManager\\Properties\\AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "TaskManager\\Properties\\AssemblyInfo.cs",
-              "ToolTip": "E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\TaskManager\\Properties\\AssemblyInfo.cs",
-              "RelativeToolTip": "TaskManager\\Properties\\AssemblyInfo.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T00:56:42.773Z"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "TaskTests.cs",
@@ -61,7 +79,7 @@
               "RelativeDocumentMoniker": "TaskManager.tests\\TaskTests.cs",
               "ToolTip": "E:\\Artem\\My works\\Projects\\\u041F\u0440\u043E\u0435\u043A\u0442\u044BVs\\ClassLibrary\\TaskManager\\TaskManager.tests\\TaskTests.cs",
               "RelativeToolTip": "TaskManager.tests\\TaskTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAYwL8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-06T21:35:11.591Z",
               "EditorCaption": ""
