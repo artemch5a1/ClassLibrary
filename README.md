@@ -13,10 +13,7 @@
 
 ```mermaid
 classDiagram
-    Team "1" *-- "*" Task : Содержит
-    Team "1" *-- "*" Member : Включает
-    Member "1" *-- "*" Task : Исполняет
-    Project "1" *-- "*" Task : Группирует
+    direction TB
     
     class Team {
         +int id
@@ -41,6 +38,12 @@ classDiagram
         +string description
         +AddTask()
     }
+    
+    Team "1" *-- "*" Task : Содержит
+    Team "1" *-- "*" Member : Включает
+    Member "1" -- "*" Task : Исполняет
+    Project "1" *-- "*" Task : Группирует
+
 
 ## 📦 Класс `Team` (Команда)
 
