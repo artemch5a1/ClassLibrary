@@ -41,7 +41,7 @@ classDiagram
         +string description
         +AddTask()
     }
-
+```
 
 ## 📦 Класс `Team` (Команда)
 
