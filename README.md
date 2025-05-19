@@ -39,10 +39,10 @@ classDiagram
         +AddTask()
     }
     
-    Team "1" *-- "*" Task : Содержит
-    Team "1" *-- "*" Member : Включает
-    Member "1" -- "*" Task : Исполняет
-    Project "1" *-- "*" Task : Группирует
+    Team ||--o{ Task : contains
+    Team ||--o{ Member : includes
+    Member }|--|{ Task : executes
+    Project ||--o{ Task : groups
 
 
 ## 📦 Класс `Team` (Команда)
